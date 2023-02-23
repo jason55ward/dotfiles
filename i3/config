@@ -15,9 +15,10 @@ set $mod Mod4
 default_border none
 #default_floating_border none|pixel
 default_floating_border none 
-hide_edge_borders none
 #hide_edge_borders none|vertical|horizontal|both|smart|smart_no_gaps
-# smart_borders no_gaps #on off no_gaps
+hide_edge_borders both
+#smart_borders on off no_gaps
+#smart_borders no_gaps
 
 # gaps inner 0
 # gaps outer 0
@@ -61,14 +62,15 @@ bindsym $mod+Next exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym $mod+Home exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym $mod+End exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym Control+Mod1+Left exec --no-startup-id playerctl previous --player=spotify
-bindsym Control+Mod1+Right exec --no-startup-id playerctl next --player=spotify
-bindsym $mod+Control+Mod1+Left exec --no-startup-id playerctl position 10- --player=spotify
-bindsym $mod+Control+Mod1+Right exec --no-startup-id playerctl position 10+ --player=spotify
-bindsym Control+Mod1+Up exec --no-startup-id playerctl play-pause --player=spotify
-bindsym Control+$mod+Up exec --no-startup-id playerctl play-pause --player=firefox
-bindsym Control+$mod+Left exec --no-startup-id playerctl previous --player=firefox
-bindsym Control+$mod+Right exec --no-startup-id playerctl next --player=firefox
+bindsym Control+Mod1+Down exec --no-startup-id playerctl play-pause --player=spotify
+bindsym Control+Mod1+Up exec --no-startup-id playerctl next --player=spotify
+bindsym Control+Mod1+Left exec --no-startup-id playerctl position 10- --player=spotify
+bindsym Control+Mod1+Right exec --no-startup-id playerctl position 10+ --player=spotify
+
+bindsym Control+$mod+Down exec --no-startup-id playerctl play-pause --player=vlc
+bindsym Control+$mod+Up exec --no-startup-id playerctl next --player=vlc
+bindsym Control+$mod+Left exec --no-startup-id playerctl position 10- --player=vlc
+bindsym Control+$mod+Right exec --no-startup-id playerctl position 10+ --player=vlc
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -145,12 +147,12 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:browser"
-set $ws2 "2:terminal"
-set $ws3 "3:editor"
-set $ws4 "4:vibes"
-set $ws5 "5:other"
-set $ws6 "6"
+set $ws1 "1:1"
+set $ws2 "2:2"
+set $ws3 "3:3"
+set $ws4 "4:4"
+set $ws5 "5:5"
+set $ws6 "6:6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -161,6 +163,8 @@ bindsym $mod+x workspace number $ws2
 bindsym $mod+c workspace number $ws3
 bindsym $mod+v workspace number $ws4
 bindsym $mod+b workspace number $ws5
+bindsym $mod+n workspace number $ws6
+
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -189,6 +193,7 @@ bindsym $mod+Shift+x move container to workspace $ws2 ; workspace $ws2
 bindsym $mod+Shift+c move container to workspace $ws3 ; workspace $ws3
 bindsym $mod+Shift+v move container to workspace $ws4 ; workspace $ws4
 bindsym $mod+Shift+b move container to workspace $ws5 ; workspace $ws5
+bindsym $mod+Shift+n move container to workspace $ws6 ; workspace $ws6
 
 # next/previous workspace
 bindsym Mod1+Tab focus right
