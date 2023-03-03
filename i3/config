@@ -128,16 +128,17 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+f fullscreen toggle global
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout toggle split
+workspace_layout tabbed
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle ; move position 0 0 ; sticky enable
 #bindsym $mod+button2 floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -147,12 +148,12 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:1"
-set $ws2 "2:2"
-set $ws3 "3:3"
-set $ws4 "4:4"
-set $ws5 "5:5"
-set $ws6 "6:6"
+set $ws1 "1:  1  "
+set $ws2 "2:  2  "
+set $ws3 "3:  3  "
+set $ws4 "4:  4  "
+set $ws5 "5:  5  "
+set $ws6 "6:  6  "
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -203,7 +204,7 @@ bindsym $mod+Tab workspace back_and_forth
 for_window [class="^firefox$"] move container to workspace $ws1
 #for_window [class="^Code$"] move container to workspace $ws3
 for_window [class="^discord$"] move container to workspace $ws4
-for_window [class="^Spotify$"] move container to workspace $ws4
+for_window [class="^Spotify$"] move container to workspace $ws5
 
 
 
@@ -275,17 +276,14 @@ bindsym $mod+minus scratchpad show
 
 # Press $mod+o followed by either f, t, Escape or Return to launch firefox,
 # thunderbird or return to the default mode, respectively.
-set $mode_launcher Launch: [b]Firefox [f]Thunar [c]Code [d]Discord [t]Terminal [s]Spotify [n]Nautilus 
-bindsym $mod+o mode "$mode_launcher"
+set $mode_launcher Launch: [w]Web Browser [f]File Browser [c]Code Editor [t]Terminal
+bindsym $mod+space mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym f exec thunar ; mode "default"
-    bindsym b exec firefox ; mode "default"
-    bindsym d exec discord ; mode "default"
+    bindsym w exec firefox ; mode "default"
     bindsym c exec code ; mode "default"
     bindsym t exec i3-sensible-terminal ; mode "default"
-    bindsym s exec spotify ; mode "default"
-    bindsym n exec nautilus ; mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
