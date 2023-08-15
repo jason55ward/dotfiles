@@ -318,7 +318,7 @@ mode "$mode_launcher" {
 
 exec ~/.autostart.sh
 exec firefox
-# exec discord
+exec discord
 exec spotify
 exec flameshot
 #exec --no-startup-id lxsession
